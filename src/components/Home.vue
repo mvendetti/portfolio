@@ -1,14 +1,12 @@
 <template>
-    <div>
-        <main>
-            <section class="home">
-                <div class="section-text">
-                    <h1>Mike <span style="font-weight: 600;">Vendetti</span></h1>
-                    <h2>front-end developer</h2>
-                </div>
-            </section>
-        </main>
-    </div>
+    <main>
+        <section class="bg">
+            <div class="section-content">
+                <h1>Mike <span style="font-weight: 600;">Vendetti</span></h1>
+                <h2>front-end developer</h2>
+            </div>
+        </section>
+    </main>
 </template>
 
 <script>
@@ -27,6 +25,7 @@
 
     body {
         font-family: 'Montserrat', sans-serif;
+        background-color: #cbd6d8;
         color: #333;
         h1 {
             font-size: 4em;
@@ -40,7 +39,7 @@
         section {
             text-align: center;
             height: 100vh;
-            &.home {
+            &.bg {
                 background-image: url('../assets/bg.jpg');
                 background-repeat: no-repeat;
                 background-position: center right;
@@ -50,7 +49,7 @@
                 -o-background-size: cover;
                 background-size: cover;
             }
-            .section-text {
+            .section-content {
                 position: relative;
                 top: 30%;
             }
