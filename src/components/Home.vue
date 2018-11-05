@@ -1,6 +1,6 @@
 <template>
-    <main>
-        <section class="bg">
+    <main class="container">
+        <section :id="$route.name">
             <div class="section-content">
                 <h1>Mike <span style="font-weight: 600;">Vendetti</span></h1>
                 <h2>front-end developer</h2>
@@ -23,35 +23,42 @@
         padding: 0;
     }
 
-    body {
-        font-family: 'Montserrat', sans-serif;
+    ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+        background: transparent;
+    }
+
+    html {
         background-color: #cbd6d8;
-        color: #333;
-        h1 {
-            font-size: 4em;
-            font-weight: 300;
-        }
-        h2 {
-            font-size: 1.5em;
-            font-weight: 100;
-            line-height: 30px;
-        }
-        section {
-            text-align: center;
-            height: 100vh;
-            &.bg {
-                background-image: url('../assets/bg.jpg');
-                background-repeat: no-repeat;
-                background-position: center right;
-                background-attachment: fixed;
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
+        background-image: url('../assets/bg.jpg');
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-attachment: fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 100%;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            overflow: scroll;
+            h1 {
+                font-size: 4em;
+                font-weight: 300;
             }
-            .section-content {
-                position: relative;
-                top: 30%;
+            h2 {
+                font-size: 1.5em;
+                font-weight: 100;
+                line-height: 30px;
+            }
+            .container {
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
             }
         }
     }
