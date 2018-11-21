@@ -1,30 +1,39 @@
 <template>
     <header>
-        <div class="nav-wrapper">
-            <nav class="navbar">
-                <span class="navbar-toggle" id="js-navbar-toggle">
-                    <i class="fas fa-bars"></i>
-                </span>
-                <router-link :to="{ name: 'home' }" class="logo">MV</router-link>
-                <ul class="main-nav" id="js-menu">
-                    <li>
-                        <router-link :to="{ name: 'portfolio' }" class="nav-links">Portfolio</router-link>
-                    </li>
-                    <li>
-                        <router-link :to="{ name: 'about' }" class="nav-links">About Mike</router-link>
-                    </li>
-                    <li>
-                        <router-link :to="{ name: 'contact' }" class="nav-links">Say Hello!</router-link>
-                    </li>
-                </ul>
+        <div class="navbar">
+            <nav class="navbar-items">
+                <div class="navbar-link navbar-brand">
+                    <router-link :to="{ name: 'home' }" class="logo">MV</router-link>
+                </div>
             </nav>
+            <nav class="navbar-items pull-right">
+                <div class="navbar-link">
+                    <router-link :to="{ name: 'portfolio' }" class="nav-links">Portfolio</router-link>
+                </div>
+                <div class="navbar-link">
+                    <router-link :to="{ name: 'about' }" class="nav-links">About Mike</router-link>
+                </div>
+                <div class="navbar-link">
+                    <router-link :to="{ name: 'contact' }" class="nav-links">Say Hello!</router-link>
+                </div>
+            </nav>
+            <Slide right class="mobile-menu">
+                    <router-link :to="{ name: 'home' }" class="mobile-link">Home</router-link>
+                    <router-link :to="{ name: 'portfolio' }" class="mobile-link">Portfolio</router-link>
+                    <router-link :to="{ name: 'about' }" class="mobile-link">About Mike</router-link>
+                    <router-link :to="{ name: 'contact' }" class="mobile-link">Say Hello!</router-link>
+            </Slide>
         </div>
     </header>
 </template>
 
 <script>
+    import { Slide } from 'vue-burger-menu'
+
     export default {
-        //
+        components: {
+            Slide
+        }
     }
 </script>
 
@@ -35,96 +44,66 @@
         position: fixed;
         z-index: 999;
         background-color: rgba(0,0,0,0.1);
-    }
-
-    .nav-wrapper {
-        margin: 0 auto;
-        width: 90%;
-    }
-
-    .navbar {
-        font-size: 18px;
-        padding-bottom: 10px;
-    }
-
-    .main-nav {
-        list-style-type: none;
-        display: none;
-    }
-
-    .nav-links,
-    .logo {
-        text-decoration: none;
-        color: #333;
-    }
-
-    .main-nav li {
-        text-align: center;
-        margin: 15px auto;
-    }
-
-    .logo {
-        display: inline-block;
-        font-size: 22px;
-        margin-top: 10px;
-        margin-left: 20px;
-        font-weight: 900;
-    }
-
-    .navbar-toggle {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        cursor: pointer;
-        font-size: 24px;
-    }
-
-    .active {
-        display: block;
-    }
-
-    @media screen and (min-width: 768px) {
         .navbar {
             display: flex;
-            justify-content: space-between;
-            padding-bottom: 0;
-            height: 70px;
-            align-items: center;
-        }
-
-        .main-nav {
-            display: flex;
-            margin-right: 30px;
-            flex-direction: row;
-            justify-content: flex-end;
-        }
-
-        .main-nav li {
-            margin: 0;
-        }
-
-        .nav-links {
-            margin-left: 40px;
-        }
-
-        .logo {
-            font-weight: 900;
-            margin-top: 0;
-        }
-
-        .navbar-toggle {
-            display: none;
-        }
-
-        .logo:hover,
-        .nav-links:hover {
-            color: rgba(255, 255, 255, 1);
+            padding: 1.5em;
+            width: 95%;
+            nav {
+                &.navbar-items {
+                    display: flex;
+                    .navbar-link {
+                        margin-left: 2em;
+                        font-size: 1.2em;
+                        a {
+                            text-decoration: none;
+                            color: #333;
+                            transition: 0.3s;
+                            -webkit-transition: 0.3s;
+                            &:hover {
+                                color: #fff;
+                                transition: 0.3s;
+                                -webkit-transition: 0.3s;
+                            }
+                        }
+                    }
+                }
+                &.pull-right {
+                    margin-left: auto;
+                }
+            }
+            .navbar-brand {
+                font-size: 1.5em !important;
+                font-weight: 900;
+            }
+            .mobile-menu {
+                display: none;
+                .mobile-link {
+                    font-size: 1.2em;
+                    font-weight: 900;
+                    color: #fff;
+                }
+            }
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        .navbar {
+            padding: 3em !important;
+            .navbar-brand {
+                display: none;
+            }
+            .navbar-items {
+                display: none !important;
+            }
+            .mobile-menu {
+                display: block !important;
+            }
+        }
+    }
+
     .fade-enter-active, .fade-leave-active {
         transition: opacity .3s
     }
-
     .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
         opacity: 0
     }
