@@ -1,5 +1,11 @@
 <template>
-    <mike-header/>
+    <main class="container">
+        <section :id="$route.name">
+            <div class="section-content">
+                <h1>hello</h1>
+            </div>
+        </section>
+    </main>
 </template>
 
 <script>

@@ -1,7 +1,6 @@
 <template>
     <main class="container">
         <section :id="$route.name">
-            <h1>some of my work</h1>
             <div class="card-container">
                 <div class="card">
                     <img class="box-img" src="https://placeimg.com/640/480/any" />
