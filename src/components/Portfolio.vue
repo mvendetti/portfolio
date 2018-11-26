@@ -65,8 +65,5 @@
             background-color: #eaeaea;
             border-radius: 5px;
         }
-        .box-img {
-            margin-right: 15px;
-        }
     }
 </style>
